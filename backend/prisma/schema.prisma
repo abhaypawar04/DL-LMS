@@ -1,4 +1,4 @@
-// HaulSync — Prisma Schema
+// DVS Logistics — Prisma Schema
 // Database: PostgreSQL
 
 generator client {

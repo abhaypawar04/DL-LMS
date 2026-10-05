@@ -122,16 +122,24 @@ export default function Login() {
           </form>
 
           <div className="mt-8 p-4 rounded-lg bg-zinc-900 border border-zinc-800">
-            <p className="text-xs font-medium text-zinc-400 mb-2">Demo credentials</p>
-            <div className="space-y-1 text-xs font-mono">
-              <div className="flex justify-between text-zinc-500">
-                <span className="text-zinc-400">admin@haulsync.local</span>
-                <span>Admin@1234</span>
-              </div>
-              <div className="flex justify-between text-zinc-500">
-                <span className="text-zinc-400">transporter@haulsync.local</span>
-                <span>Trans@1234</span>
-              </div>
+            <p className="text-xs font-medium text-zinc-400 mb-2">Demo credentials (click to fill)</p>
+            <div className="space-y-2 text-xs font-mono">
+              <button
+                type="button"
+                onClick={() => { setEmail('admin@haulsync.local'); setPassword('Admin@1234'); }}
+                className="w-full flex justify-between items-center text-zinc-400 hover:text-amber-400 hover:bg-zinc-800/60 p-1.5 rounded transition-colors text-left"
+              >
+                <span className="font-semibold">admin@haulsync.local</span>
+                <span className="text-zinc-500 font-normal">Admin@1234</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => { setEmail('transporter@haulsync.local'); setPassword('Trans@1234'); }}
+                className="w-full flex justify-between items-center text-zinc-400 hover:text-amber-400 hover:bg-zinc-800/60 p-1.5 rounded transition-colors text-left"
+              >
+                <span className="font-semibold">transporter@haulsync.local</span>
+                <span className="text-zinc-500 font-normal">Trans@1234</span>
+              </button>
             </div>
           </div>
         </div>

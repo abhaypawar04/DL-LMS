@@ -1,4 +1,4 @@
-# 🚛 HaulSync — Open Source Logistics Operating System
+# 🚛 DVS Logistics — Open Source Logistics Operating System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Docker](https://img.shields.io/badge/Docker-ready-blue.svg)](https://www.docker.com/)
@@ -7,7 +7,7 @@
 
 > **A self-hostable, full-stack freight and logistics management platform — built for enterprises, transport companies, and consignors.**
 
-HaulSync digitizes your entire logistics workflow: RFQ-based indenting, real-time shipment tracking, fleet management, POD collection, invoice reconciliation, and analytics — all in one open-source platform which you fully in control.
+DVS Logistics digitizes your entire logistics workflow: RFQ-based indenting, real-time shipment tracking, fleet management, POD collection, invoice reconciliation, and analytics — all in one open-source platform which you fully in control.
 
 ---
 <img width="1278" height="697" alt="image" src="https://github.com/user-attachments/assets/4879e911-e5be-46bc-be81-9c57bed095b1" />
@@ -34,7 +34,7 @@ HaulSync digitizes your entire logistics workflow: RFQ-based indenting, real-tim
 ## 🏗️ Architecture
 
 ```
-haulsync/
+dvs-logistics/
 ├── backend/          # Node.js + Express + Prisma API
 ├── frontend/         # React + Vite + Tailwind SPA
 ├── docs/             # Architecture & API documentation
@@ -83,7 +83,7 @@ docker compose exec backend node prisma/seed.js
 ### 5. Access the app
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:5000
-- **Default login**: `admin@haulsync.local` / `Admin@1234`
+- **Default login**: `admin@dvslogistics.local` / `Admin@1234`
 
 ---
 
@@ -150,10 +150,10 @@ Feel free to fork the repo.
 ## Design System
 
 This module uses **teal** (`#14B8A6`) as its accent color to distinguish it from:
-- **HaulSync Core** — Amber / Yellow (`#F59E0B`)
-- **HaulSync TMS** — Purple (`#8B5CF6`)
-- **HaulSync WMS** — Blue (`#3B82F6`)
-- **HaulSync In-Plant** — **Teal** (`#14B8A6`) ✅
+- **DVS Logistics Core** — Amber / Yellow (`#F59E0B`)
+- **DVS Logistics TMS** — Purple (`#8B5CF6`)
+- **DVS Logistics WMS** — Blue (`#3B82F6`)
+- **DVS Logistics In-Plant** — **Teal** (`#14B8A6`) ✅
 
 All modules share the same dark base (`zinc-950`), Syne + DM Sans typography, and the ⚡ Zap lightning logo — just colored differently per module.
 ---
@@ -165,5 +165,5 @@ MIT License — see [LICENSE](LICENSE) for details.
 ---
 
 ## 🙏 Acknowledgements
-Part of the HaulSync open-source logistics ecosystem.
+Part of the DVS Logistics open-source logistics ecosystem.
 Built with ❤️ for the logistics community. Open-source forever.

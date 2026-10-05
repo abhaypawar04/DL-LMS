@@ -1,7 +1,7 @@
 {
-  "name": "haulsync-backend",
+  "name": "dvs-logistics-backend",
   "version": "1.0.0",
-  "description": "HaulSync Logistics OS — Backend API",
+  "description": "DVS Logistics OS — Backend API",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

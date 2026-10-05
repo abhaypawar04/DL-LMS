@@ -1,4 +1,4 @@
-# Contributing to HaulSync
+# Contributing to DVS Logistics
 
 Thank you for your interest in helping democratize logistics technology. We're building something meaningful here, and your engagement — whether as a contributor, adopter, or honest skeptic — matters.
 
@@ -6,7 +6,7 @@ Thank you for your interest in helping democratize logistics technology. We're b
 
 ## 🏗️ Current Status: Active Development
 
-HaulSync is in active development across eight modules, each at different maturity stages. Right now, we're **not accepting external code contributions**, but we're building toward that. Here's why and what it means:
+DVS Logistics is in active development across eight modules, each at different maturity stages. Right now, we're **not accepting external code contributions**, but we're building toward that. Here's why and what it means:
 
 - **Modules are in rapid iteration** — architecture is still settling, APIs are stabilizing, and the shared patterns across the ecosystem are clarifying
 - **We're validating operational assumptions** — talking to carriers, brokers, fleet operators, and auto suppliers to make sure what we build actually solves real problems
@@ -22,15 +22,15 @@ HaulSync is in active development across eight modules, each at different maturi
 We can't accept PRs yet, but there are high-impact ways to get involved:
 
 ### 1. **Fork and Deploy**
-The entire HaulSync ecosystem is MIT-licensed and self-hostable. Use it. Modify it. Run it on your own infrastructure. Prove out concepts. This is exactly what the open-source framing is for.
+The entire DVS Logistics ecosystem is MIT-licensed and self-hostable. Use it. Modify it. Run it on your own infrastructure. Prove out concepts. This is exactly what the open-source framing is for.
 
 ```bash
-git clone https://github.com/HaulSync/[module-name]
+git clone https://github.com/dvslogistics/[module-name]
 cd [module-name]
 docker-compose up
 ```
 
-If you build something interesting on top of HaulSync, tell us. We'd genuinely like to know.
+If you build something interesting on top of DVS Logistics, tell us. We'd genuinely like to know.
 
 ### 2. **Report Issues and Edge Cases**
 Find bugs? Weird behavior? A workflow that breaks? Open an issue on the relevant module repository with:
@@ -53,7 +53,7 @@ We're especially interested in:
 - Self-hosting infrastructure improvements
 
 ### 4. **Document What You Learn**
-If you deploy a HaulSync module and figure something out — a config pattern that works, a performance tuning trick, a deployment topology — document it and share it. Wikis, blog posts, PRs to our docs, community Slack threads. The knowledge compounds.
+If you deploy a DVS Logistics module and figure something out — a config pattern that works, a performance tuning trick, a deployment topology — document it and share it. Wikis, blog posts, PRs to our docs, community Slack threads. The knowledge compounds.
 
 ### 5. **Join the Conversation**
 - **Follow the roadmap** — watch the repository and GitHub Discussions to see what's coming
@@ -91,7 +91,7 @@ Be respectful. We're building for an industry where people's livelihoods are on 
 
 ## 🔐 Security
 
-Found a security vulnerability? **Do not open a public issue.** Email `security@haulsync.io` with:
+Found a security vulnerability? **Do not open a public issue.** Email `security@dvslogistics.io` with:
 - The vulnerability description
 - Steps to reproduce
 - Potential impact
@@ -103,7 +103,7 @@ We'll respond within 48 hours and work with you on disclosure timing.
 
 ## 📚 Resources
 
-- **[HaulSync Architecture Docs](./docs/ARCHITECTURE.md)** — how modules integrate
+- **[DVS Logistics Architecture Docs](./docs/ARCHITECTURE.md)** — how modules integrate
 - **[Deployment Guide](./docs/DEPLOYMENT.md)** — self-hosting setup
 - **[API Reference](./docs/API.md)** — standardized schemas across modules
   
@@ -123,7 +123,7 @@ We'll update this file, email our mailing list, and make noise across all channe
 
 ## 🙏 Why We're Doing This Carefully
 
-The logistics industry doesn't have a lot of trust in vendors. You're right to be skeptical of new platforms. What makes HaulSync different isn't just the code — it's the **governance**: an ecosystem where you own your stack, where features don't require you to upgrade your license, and where the core technology is read-auditable by anyone.
+The logistics industry doesn't have a lot of trust in vendors. You're right to be skeptical of new platforms. What makes DVS Logistics different isn't just the code — it's the **governance**: an ecosystem where you own your stack, where features don't require you to upgrade your license, and where the core technology is read-auditable by anyone.
 
 We're taking the same care with how we build community. We're not trying to move fast and break things — we're trying to build something durable that stays true to the founding mission: democratize logistics technology, no vendor lock-in, no opaque pricing.
 
@@ -136,6 +136,6 @@ We're taking the same care with how we build community. We're not trying to move
 
 ---
 
-*The HaulSync ecosystem is built in the open, for the people who actually run supply chains. Thanks for being part of that vision.*
+*The DVS Logistics ecosystem is built in the open, for the people who actually run supply chains. Thanks for being part of that vision.*
 
 ⚡ **Your Freight. Fully Synced.**

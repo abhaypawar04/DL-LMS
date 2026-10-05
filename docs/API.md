@@ -1,4 +1,4 @@
-# HaulSync — API Reference
+# DVS Logistics — API Reference
 
 Base URL: `http://localhost:5000/api`
 
@@ -219,4 +219,4 @@ Response format:
 | 409 | Conflict (duplicate record) |
 | 500 | Internal server error |
 
-Haulsync
+DVS Logistics

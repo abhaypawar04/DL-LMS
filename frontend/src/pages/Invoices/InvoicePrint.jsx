@@ -113,7 +113,7 @@ export function PrintButton({ invoice }) {
   ${invoice.notes ? `<div class="notes"><b>Notes:</b> ${invoice.notes}</div>` : ''}
 
   <div class="footer">
-    <span>HaulSync Logistics OS · Generated ${new Date().toLocaleString('en-IN')}</span>
+    <span>DVS Logistics OS · Generated ${new Date().toLocaleString('en-IN')}</span>
     <span>This is a system-generated invoice.</span>
   </div>
 </body>

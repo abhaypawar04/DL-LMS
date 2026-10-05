@@ -1,4 +1,4 @@
-# HaulSync — Deployment Guide
+# DVS Logistics — Deployment Guide
 
 ---
 
@@ -208,5 +208,5 @@ docker compose exec backend node prisma/seed.js
 
 ```bash
 GET /health
-# Response: { "status": "ok", "service": "HaulSync API", "version": "1.0.0" }
+# Response: { "status": "ok", "service": "DVS Logistics API", "version": "1.0.0" }
 ```

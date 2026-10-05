@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('🌱 Seeding HaulSync database...');
+  console.log('🌱 Seeding DVS Logistics database...');
 
   // Create default admin user
   const hashedPassword = await bcrypt.hash('Admin@1234', 10);
@@ -14,22 +14,22 @@ async function main() {
     update: {},
     create: {
       id: 'seed-company-001',
-      name: 'HaulSync Demo Corp',
+      name: 'DVS Logistics Corp',
       type: 'SHIPPER',
       gstin: '29ABCDE1234F1Z5',
       city: 'Bangalore',
       state: 'Karnataka',
       phone: '9876543210',
-      email: 'info@haulsyncdemo.com',
+      email: 'info@dvslogistics.com',
     },
   });
 
   const admin = await prisma.user.upsert({
-    where: { email: 'admin@haulsync.local' },
+    where: { email: 'admin@dvslogistics.local' },
     update: {},
     create: {
       name: 'Super Admin',
-      email: 'admin@haulsync.local',
+      email: 'admin@dvslogistics.local',
       password: hashedPassword,
       role: 'SUPER_ADMIN',
       companyId: adminCompany.id,
@@ -68,11 +68,11 @@ async function main() {
   // Seed transporter users
   const tpHash = await bcrypt.hash('Trans@1234', 10);
   await prisma.user.upsert({
-    where: { email: 'transporter@haulsync.local' },
+    where: { email: 'transporter@dvslogistics.local' },
     update: {},
     create: {
       name: 'Transport Manager',
-      email: 'transporter@haulsync.local',
+      email: 'transporter@dvslogistics.local',
       password: tpHash,
       role: 'TRANSPORTER',
       companyId: transporter1.id,
@@ -138,8 +138,8 @@ async function main() {
   console.log('✅ Seeding complete!');
   console.log('');
   console.log('🔑 Default credentials:');
-  console.log('   Admin:       admin@haulsync.local       / Admin@1234');
-  console.log('   Transporter: transporter@haulsync.local / Trans@1234');
+  console.log('   Admin:       admin@dvslogistics.local       / Admin@1234');
+  console.log('   Transporter: transporter@dvslogistics.local / Trans@1234');
 }
 
 main()

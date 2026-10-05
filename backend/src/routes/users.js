@@ -7,7 +7,7 @@ const { validate, createUserRules, updateUserRules, paginationRules } = require(
 const router = express.Router();
 const prisma = require('../prisma');
 
-const DEFAULT_PASSWORD = 'HaulSync@1234'; // kept for seeding only — always force-change on first login
+const DEFAULT_PASSWORD = 'DVSLogistics@1234'; // kept for seeding only — always force-change on first login
 
 // GET /api/users
 router.get(
