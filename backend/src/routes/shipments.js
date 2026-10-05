@@ -115,17 +115,23 @@ router.post(
 
       const shipment = await prisma.shipment.create({
         data: {
-          shipperCompanyId, vehicleId: vehicleId || null, driverId: driverId || null,
-          goodsTypeId: goodsTypeId || null, routeId: routeId || null,
-          originCity, originState, destCity, destState,
+          shipperCompanyId,
+          vehicleId: vehicleId || null,
+          driverId: driverId || null,
+          goodsTypeId: goodsTypeId || null,
+          routeId: routeId || null,
+          originCity,
+          originState: originState || originCity,
+          destCity,
+          destState: destState || destCity,
           loadingDate: new Date(loadingDate),
           expectedDelivery: expectedDelivery ? new Date(expectedDelivery) : null,
-          freightAmount: freightAmount ? Number(freightAmount) : null,
-          weight: weight ? Number(weight) : null,
+          freightAmount: freightAmount !== undefined && freightAmount !== null && freightAmount !== '' ? Number(freightAmount) : null,
+          weight: weight !== undefined && weight !== null && weight !== '' ? Number(weight) : null,
           quantity: quantity ? Number(quantity) : 1,
           ewayBillNo: ewayBillNo || null,
           lrNumber: lrNumber || null,
-          notes,
+          notes: notes || null,
           shipmentNumber: generateShipmentNumber(),
           createdById: req.user.id,
         },
@@ -219,10 +225,10 @@ router.get('/:shipmentId/pod/:filename', authenticate, async (req, res, next) =>
     const { filename } = req.params;
     // Prevent path traversal
     const safeFilename = path.basename(filename);
-    const filePath = path.resolve(__dirname, '../../../uploads/pods', safeFilename);
+    const uploadsDir = path.resolve(__dirname, '../../uploads/pods');
+    const filePath = path.resolve(uploadsDir, safeFilename);
 
     // Verify the resolved path is inside the uploads directory
-    const uploadsDir = path.resolve(__dirname, '../../../uploads/pods');
     if (!filePath.startsWith(uploadsDir)) {
       return res.status(400).json({ message: 'Invalid file path' });
     }

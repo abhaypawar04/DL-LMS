@@ -53,7 +53,7 @@ router.post(
       // Whitelist fields
       const { registrationNo, type, make, model, year, capacity, companyId } = req.body;
       const vehicle = await prisma.vehicle.create({
-        data: { registrationNo, type, make, model, year: year ? Number(year) : null, capacity, companyId },
+        data: { registrationNo, type, make, model, year: year ? Number(year) : null, capacity: capacity ? Number(capacity) : 0, companyId: companyId || null },
       });
       res.status(201).json(vehicle);
     } catch (err) { next(err); }
@@ -70,7 +70,7 @@ router.put('/:id', authenticate, authorize('SUPER_ADMIN', 'ADMIN', 'MANAGER'), a
         ...(make !== undefined && { make }),
         ...(model !== undefined && { model }),
         ...(year !== undefined && { year: Number(year) }),
-        ...(capacity !== undefined && { capacity }),
+        ...(capacity !== undefined && { capacity: Number(capacity) }),
         ...(isActive !== undefined && { isActive }),
       },
     });

@@ -1,4 +1,4 @@
-# HaulSync — Architecture Overview
+# DVS Logistics — Architecture Overview
 
 ## System Architecture
 
@@ -154,7 +154,7 @@ GoodsType (reference data: FMCG, Pharma, Electronics...)
 
 ---
 
-## Extending HaulSync
+## Extending DVS Logistics
 
 ### Adding a new module
 
@@ -166,4 +166,4 @@ GoodsType (reference data: FMCG, Pharma, Electronics...)
 6. Add route in `frontend/src/App.jsx`
 7. Add nav item in `frontend/src/components/Layout/Sidebar.jsx`
 
-## HaulSync Project
+## DVS Logistics Project

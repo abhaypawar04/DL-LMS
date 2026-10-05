@@ -50,16 +50,44 @@ export default function CreateShipment() {
     e.preventDefault();
     setLoading(true);
     setError('');
+
+    if (!form.shipperCompanyId) {
+      setError('Please select a Shipper Company before creating a shipment.');
+      setLoading(false);
+      return;
+    }
+
     try {
-      const { data } = await api.post('/shipments', {
-        ...form,
-        quantity: Number(form.quantity),
-        weight: form.weight ? Number(form.weight) : undefined,
-        freightAmount: form.freightAmount ? Number(form.freightAmount) : undefined,
-      });
+      const payload = {
+        shipperCompanyId: form.shipperCompanyId,
+        originCity: form.originCity.trim(),
+        originState: form.originState.trim(),
+        destCity: form.destCity.trim(),
+        destState: form.destState.trim(),
+        loadingDate: form.loadingDate,
+        quantity: Number(form.quantity) || 1,
+        ...(form.vehicleId && { vehicleId: form.vehicleId }),
+        ...(form.driverId && { driverId: form.driverId }),
+        ...(form.goodsTypeId && { goodsTypeId: form.goodsTypeId }),
+        ...(form.routeId && { routeId: form.routeId }),
+        ...(form.weight && { weight: Number(form.weight) }),
+        ...(form.freightAmount && { freightAmount: Number(form.freightAmount) }),
+        ...(form.expectedDelivery && { expectedDelivery: form.expectedDelivery }),
+        ...(form.ewayBillNo && { ewayBillNo: form.ewayBillNo.trim() }),
+        ...(form.lrNumber && { lrNumber: form.lrNumber.trim() }),
+        ...(form.notes && { notes: form.notes.trim() }),
+      };
+
+      const { data } = await api.post('/shipments', payload);
       navigate(`/shipments/${data.id}`);
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to create shipment');
+      const backendErrors = err.response?.data?.errors;
+      if (backendErrors && Array.isArray(backendErrors) && backendErrors.length > 0) {
+        const errorList = backendErrors.map(e => `${e.path || e.param}: ${e.msg}`).join(' | ');
+        setError(`Validation Failed: ${errorList}`);
+      } else {
+        setError(err.response?.data?.message || 'Failed to create shipment');
+      }
     } finally { setLoading(false); }
   };
 

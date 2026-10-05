@@ -13,6 +13,7 @@ export default function UserManagement() {
   const [search, setSearch] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const [companies, setCompanies] = useState([]);
   const [form, setForm] = useState({ name: '', email: '', password: '', role: 'OPERATOR', phone: '', companyId: '' });
   const { isAdmin } = useAuth();
@@ -32,11 +33,14 @@ export default function UserManagement() {
   const handleCreate = async (e) => {
     e.preventDefault();
     setSubmitting(true);
+    setError('');
     try {
       await api.post('/users', form);
       setShowModal(false);
       setForm({ name: '', email: '', password: '', role: 'OPERATOR', phone: '', companyId: '' });
       load();
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to create user');
     } finally { setSubmitting(false); }
   };
 
@@ -55,7 +59,7 @@ export default function UserManagement() {
   return (
     <div className="space-y-5 animate-fade-in">
       <PageHeader title="User Management" subtitle={`${total} users · unlimited access at no extra cost`}
-        action={<Button onClick={() => setShowModal(true)}><Plus size={16} /> Add User</Button>} />
+        action={<Button onClick={() => { setError(''); setShowModal(true); }}><Plus size={16} /> Add User</Button>} />
 
       <SearchInput value={search} onChange={setSearch} placeholder="Search users..." />
 
@@ -98,6 +102,7 @@ export default function UserManagement() {
 
       <Modal open={showModal} onClose={() => setShowModal(false)} title="Add User">
         <form onSubmit={handleCreate} className="space-y-4">
+          {error && <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm">{error}</div>}
           <div className="grid grid-cols-2 gap-4">
             <FormField label="Full Name" required><input className="input-field" value={form.name} onChange={set('name')} required /></FormField>
             <FormField label="Email" required><input type="email" className="input-field" value={form.email} onChange={set('email')} required /></FormField>
